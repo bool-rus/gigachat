@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2024"
 
 license = "MIT"
-keywords = ["gigachat", "giga.chat", "grpc", "api", "ai"]
+keywords = ["gigachat", "chatbot", "grpc", "api", "ai"]
 description = "GigaChat API gRPC bindings"
 repository = "https://github.com/bool-rus/gigachat"
 
