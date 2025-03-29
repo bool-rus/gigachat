@@ -102,6 +102,9 @@ impl TokenInterceptor {
         });
         Ok(Self { token })
     }
+    pub fn get_token(&self) -> String {
+        self.token.read().unwrap().clone()
+    }
 }
 
 impl Interceptor for TokenInterceptor {
