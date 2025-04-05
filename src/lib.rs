@@ -14,4 +14,5 @@ pub async fn make_grpc_service(auth_token: String, scope: auth::Scope) -> Result
 }
 
 #[cfg(feature = "tower")]
+#[cfg_attr(docsrs, doc(cfg(feature = "tower")))]
 pub mod service;
