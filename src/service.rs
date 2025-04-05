@@ -5,7 +5,21 @@ use tower::Service;
 
 use crate::giga::{chat_service_client::ChatServiceClient, ChatRequest, ChatResponse};
 
-/// Auto trait that describes a tower's service which consumes ChatRequest and returns ChatResponse.
+/// "Auto" trait that describes a tower's service which consumes ChatRequest and returns ChatResponse.
+/// # Examples
+/// 
+/// ``` rust
+/// use gigachat::faces::*; 
+/// use gigachat::giga::{ChatRequest, ChatResponse, Message};
+/// use tower::Service;
+/// 
+/// fn make_service(inner: impl GrpcInner + Clone + Send + 'static) -> impl ChatService {
+///     let service = gigachat::service::Chat::new(inner);
+///     let service = LoggerService(service);
+///     // let service = RetryLayer::new(some_policy).layer(service);
+///     service
+/// }
+/// ```
 pub trait ChatService: Service<ChatRequest, Response = ChatResponse, Error = StdError, Future: Send> {}
 impl <S> ChatService for S where S: Service<ChatRequest, Response = ChatResponse, Error = StdError, Future: Send> {}
 

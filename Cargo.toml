@@ -8,6 +8,11 @@ keywords = ["gigachat", "chatbot", "grpc", "api", "ai"]
 description = "GigaChat API gRPC bindings"
 repository = "https://github.com/bool-rus/gigachat"
 
+[[example]]
+name = "tower"
+path = "examples/tower.rs"
+required-features = ["tower"]
+
 [package.metadata.docs.rs]
 features = ["tower"]
 rustdoc-args = ["--cfg", "docsrs"]
@@ -36,4 +41,5 @@ tower = { version = "0.5.2", optional = true }
 tonic-build = { version = "0.12" }
 
 [dev-dependencies]
+simplelog = "0.12.2"
 tokio = { version = "1.44.1", features = ["full"]}
